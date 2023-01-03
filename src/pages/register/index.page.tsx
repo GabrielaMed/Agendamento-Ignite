@@ -49,6 +49,8 @@ export default function Register() {
                 name: data?.name,
                 username: data?.username
             })
+
+            await router.push('/register/connect-calendar')
         }
 
         catch (err) {
@@ -94,7 +96,7 @@ export default function Register() {
                     )}
                 </label>
 
-                <Button type="submit">
+                <Button type="submit" disabled={isSubmitting}>
                     Próximo passo
                     <ArrowRight />
                 </Button>
