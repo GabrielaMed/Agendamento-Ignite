@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unstable_getServerSession } from 'next-auth/next'
 import { buildNextAuthOptions } from '../auth/[...nextauth].api'
