@@ -14,7 +14,6 @@ import { useQuery } from '@tanstack/react-query';
 import { api } from '../../../lib/axios';
 import { useRouter } from 'next/router';
 import {
-  Availability,
   BlockedDates,
   CalendarProps,
   CalendarWeek,
@@ -51,11 +50,11 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
       const respose = await api.get(`/users/${username}/blocked-dates`, {
         params: {
           year: currentDate.get('year'),
-          month: currentDate.get('month') + 1,
+          month: String(currentDate.get('month') + 1).padStart(2, '0'),
         },
       });
 
-      //console.log(respose.data);
+      console.log(respose.data);
       return respose.data;
     }
   );
