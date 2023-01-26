@@ -23,3 +23,12 @@ export interface CalendarWeek {
     disabled: boolean;
   }>;
 }
+
+export interface CalendarStepProps {
+  onSelectDateTime: (date: Date) => void;
+}
+
+export interface ConfirmStepProps {
+  schedulingDate: Date;
+  onCancelConfirmation: () => void;
+}
