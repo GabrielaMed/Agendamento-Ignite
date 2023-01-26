@@ -13,26 +13,14 @@ import dayjs from 'dayjs';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../../../lib/axios';
 import { useRouter } from 'next/router';
-
-interface CalendarWeek {
-  week: number;
-  days: Array<{
-    date: dayjs.Dayjs;
-    disabled: boolean;
-  }>;
-}
+import {
+  Availability,
+  BlockedDates,
+  CalendarProps,
+  CalendarWeek,
+} from '../../../shared/Interfaces';
 
 type CalendarWeeks = CalendarWeek[];
-
-interface BlockedDates {
-  blockedWeekDays: number[];
-  blockedDates: number[];
-}
-
-interface CalendarProps {
-  selectedDate: Date | null;
-  onDateSelected: (date: Date) => void;
-}
 
 export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(() => {
@@ -67,6 +55,7 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
         },
       });
 
+      //console.log(respose.data);
       return respose.data;
     }
   );

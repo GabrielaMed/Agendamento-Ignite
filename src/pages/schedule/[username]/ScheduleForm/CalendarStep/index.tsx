@@ -11,11 +11,7 @@ import dayjs from 'dayjs';
 import { api } from '../../../../../lib/axios';
 import { useRouter } from 'next/router';
 import { useQuery } from '@tanstack/react-query';
-
-interface Availability {
-  possibleTimes: number[];
-  availableTimes: number[];
-}
+import { Availability } from '../../../../../shared/Interfaces';
 
 export function CalendarStep() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -42,7 +38,7 @@ export function CalendarStep() {
           date: selectedDateWithoutTime,
         },
       });
-
+      //console.log(respose.data.availableTimes.length);
       return respose.data;
     },
     {
